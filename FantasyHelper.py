@@ -3,7 +3,7 @@ from sleeperpy import Leagues,Players,Drafts,User
 import time
 
 
-account = User.get_user('sjoshi2004')
+account = User.get_user('sjoshi2004') #Username
 
 sa = gspread.service_account(filename="service_account.json")
 sheet = sa.open("Fantasy Rankings")
