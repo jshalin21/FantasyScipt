@@ -40,7 +40,7 @@ def draftScript(draftID, username="sjoshi2004"):
     account = User.get_user(username) #Username
 
     sa = gspread.service_account(filename="service_account.json")
-    sheet = sa.open("Fantasy Rankings 2024")
+    sheet = sa.open("Fantasy Rankings")
 
     wks1 = sheet.worksheet("Fantasy Pros PPR")
     wks3 = sheet.worksheet("NO BS PPR")
