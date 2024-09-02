@@ -26,9 +26,7 @@ def draftGui():
     
     sub_btn=tk.Button(root,text = 'Start', command = submit)
 
-    # placing the label and entry in
-    # the required position using grid
-    # method
+
     usr_label.grid(row=0,column=0)
     usr_entry.grid(row=0,column=1)
     id_label.grid(row=1,column=0)
@@ -42,10 +40,9 @@ def draftScript(draftID, username="sjoshi2004"):
     account = User.get_user(username) #Username
 
     sa = gspread.service_account(filename="service_account.json")
-    sheet = sa.open("Fantasy Rankings")
+    sheet = sa.open("Fantasy Rankings 2024")
 
     wks1 = sheet.worksheet("Fantasy Pros PPR")
-    wks2 = sheet.worksheet("LOEBS Leads PPR")
     wks3 = sheet.worksheet("NO BS PPR")
 
     pick = 0
@@ -75,17 +72,6 @@ def draftScript(draftID, username="sjoshi2004"):
                     location = "A" + row + ":" + "F" + row
                     wks1.format(location, {"backgroundColor": {"red": 25}})
                     print("Player drafted:", Name)
-
-                cell2 = wks2.find(Name)
-
-                if cell2 is None:
-                    print("Player Not Found: ", Name)
-                else:
-                    row2 = str(cell2.row)
-                    col2 = str(cell2.col)
-                    location2 = "A" + row2 + ":" + "E" + row2
-                    wks2.format(location2, {"backgroundColor": {"red": 25}})
-                    #print("Player drafted:", Name)
 
                 cell3 = wks3.find(Name)
 
